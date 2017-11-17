@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
-import { HomePage } from './home';
 import { IonicModule } from 'ionic-angular';
+
+import { HomePage } from './home';
+import { ConversationCardComponent } from './conversation-card/conversation-card';
+
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
-	declarations: [HomePage],
+	declarations: [HomePage, ConversationCardComponent],
     imports: [ComponentsModule, IonicModule],
-    entryComponents: [HomePage],
+    entryComponents: [HomePage, ConversationCardComponent],
 	exports: []
 })
 export class HomeModule {}
