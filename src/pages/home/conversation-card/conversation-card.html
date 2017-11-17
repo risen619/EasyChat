@@ -1,7 +1,7 @@
-<ion-item>
+<ion-item (click)="openConversation()">
     <ion-avatar item-start>
-        <ion-img [src]="avatar"></ion-img>
+        <ion-img [src]="c.avatarUrl"></ion-img>
     </ion-avatar>
-    <h2>{{ sender }}</h2>
-    <p>{{ text }}</p>
+    <h2>{{ c.lastSender }}</h2>
+    <p>{{ c.lastMessage }}</p>
 </ion-item>

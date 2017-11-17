@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { Conversation } from '../../../models/conversation';
+import { ActiveConversationPage } from '../../active-conversation/active-conversation';
 
 @Component({
   selector: 'conversation-card',
@@ -7,9 +10,12 @@ import { Component, Input } from '@angular/core';
 
 export class ConversationCardComponent
 {
-    @Input('avatar-url') avatar: string;
-    @Input('sender-name') sender: string;
-    @Input('last-message') text: string;
+    @Input('conversation') c: Conversation;
 
-    constructor() { }
+    constructor(public nav: NavController) { }
+
+    openConversation()
+    {
+        this.nav.push(ActiveConversationPage, {"conversation": this.c});
+    }
 }

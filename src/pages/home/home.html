@@ -1,7 +1,7 @@
-<app-header title="Home"></app-header>
+<app-header title="Conversations"></app-header>
 <ion-content>
     <ion-list>
-        <conversation-card *ngFor="let c of conversations"
-        [avatar-url]="c.avatar" [sender-name]="c.sender" [last-message]="c.text"></conversation-card>
+        <conversation-card *ngFor="let c of conversations" [conversation]="c">
+    </conversation-card>
     </ion-list>
 </ion-content>

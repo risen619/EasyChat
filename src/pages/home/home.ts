@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Conversation } from '../../models/conversation';
 
 @Component({
   selector: 'page-home',
@@ -11,16 +12,12 @@ export class HomePage {
     sender: string = "Ionic";
     text: string = "That was a quick start.";
 
-    conversations: Array<{avatar: string, sender: string, text: string}> = [];
+    conversations: Conversation[] = [];
 
     constructor(public navCtrl: NavController)
     {
         for(let i=1; i<=8; i++)
-            this.conversations.push({
-                avatar: this.avatar + i.toString() + ".png",
-                sender: this.sender,
-                text: this.text
-            });
+            this.conversations.push(new Conversation(1, 1, "C"+i, this.sender, this.text, this.avatar + i + ".png"));
     }
 
 }
