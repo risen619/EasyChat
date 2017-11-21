@@ -17,7 +17,7 @@ export class HomePage {
     constructor(public navCtrl: NavController)
     {
         for(let i=1; i<=8; i++)
-            this.conversations.push(new Conversation(1, 1, "C"+i, this.sender, this.text, this.avatar + i + ".png"));
+            this.conversations.push(new Conversation(1, 1, this.sender, this.sender, this.text, this.avatar + i + ".png"));
     }
 
 }

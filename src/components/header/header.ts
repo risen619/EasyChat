@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
 
-    @Input('title')
-    pageName: String;
+    @Input('title') pageName: string;
+    @Input('avatar') avatar: string;
 
     constructor() { }
 

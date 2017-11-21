@@ -1,4 +1,14 @@
-<app-header [title]="title"></app-header>
+<app-header [avatar]="avatar" [title]="title"></app-header>
 <ion-content>
-
+    <ion-list *ngIf="messages.length > 0" style="margin-top: 10px;">
+        <ion-item *ngFor="let m of messages" [class.mine]="m.mine" no-lines><span>{{m.text}}</span></ion-item>
+    </ion-list>
 </ion-content>
+<form [formGroup]="textForm" (ngSubmit)="submit()" class="fixed-bottom" novalidate>
+    <ion-item>
+        <ion-input name="text" formControlName="text"></ion-input>
+        <button type="submit" ion-button clear item-end>
+            <ion-icon name="send"></ion-icon>
+        </button>
+    </ion-item>
+</form>

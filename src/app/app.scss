@@ -1,5 +1,11 @@
 ion-nav {
     
+    ion-content {
+        .fixed-content, .scroll-content {
+            background: $background;
+        }
+    }
+    
     ion-content.content-md {
         .fixed-content, .scroll-content {
             top: 56px;
