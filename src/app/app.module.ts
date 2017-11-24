@@ -2,13 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { MyApp } from './app.component';
-
 import { HomeModule } from '../pages/home/home.module';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthProvider } from '../providers/auth/auth';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginPageModule } from '../pages/login/login.module';
+import { TokenInterceptor } from '../providers/token-interceptor/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ReactiveFormsModule,
-    HomeModule
+    HttpClientModule,
+    HomeModule,
+    LoginPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,7 +30,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {
+        provide: ErrorHandler,
+        useClass: IonicErrorHandler
+    },
+    AuthProvider,
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: TokenInterceptor,
+        multi: true
+    }
   ]
 })
 export class AppModule {}

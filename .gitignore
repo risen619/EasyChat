@@ -35,3 +35,6 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+ionic.config.json
+config.xml
+package-lock.json
