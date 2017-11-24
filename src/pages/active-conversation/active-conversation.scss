@@ -1,11 +1,11 @@
 page-active-conversation {
 
     ion-content, .scroll-content, .fixed-content {
-        bottom: 55px !important;
+        bottom: 54px !important;
     }
 
     .fixed-bottom {
-        background: linear-gradient(right, #44405e, #5b4d67);
+        background: linear-gradient(to left, #44405e, #5b4d67);
         height: 55px !important;
         position: absolute;
         bottom: 0px;
@@ -25,6 +25,10 @@ page-active-conversation {
             margin: 0;
             height: 100%;
             color: #fff;
+
+            input {
+                border: 0;
+            }
         }
 
         ion-icon {

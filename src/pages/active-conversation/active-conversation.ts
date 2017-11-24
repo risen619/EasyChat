@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Conversation } from '../../models/conversation';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
@@ -17,16 +17,18 @@ export class ActiveConversationPage {
 
     textForm: FormGroup;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder)
+    constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder, public plt: Platform)
     {
         this.c = navParams.get("conversation");
         this.title = this.c.name;
-        this.avatar = this.c.avatarUrl;
+
+        if(!(plt.is('ios') || plt.is('ipad') || plt.is('iphone')))
+            this.avatar = this.c.avatarUrl;
 
         this.createForm();
     }
 
-    get text(): FormControl { return this.textForm.get('text'); }
+    get text() { return this.textForm.get('text'); }
 
     createForm()
     {
@@ -40,7 +42,7 @@ export class ActiveConversationPage {
         if(this.text.valid)
         {
             this.messages.push({text: this.text.value, mine: true});
-            this.text.value = "";
+            this.text.setValue("");
         }
     }
 
