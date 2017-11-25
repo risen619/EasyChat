@@ -10,6 +10,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginPageModule } from '../pages/login/login.module';
 import { TokenInterceptor } from '../providers/token-interceptor/token-interceptor';
+import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TokenInterceptor } from '../providers/token-interceptor/token-intercept
         provide: HTTP_INTERCEPTORS,
         useClass: TokenInterceptor,
         multi: true
-    }
+    },
+    ApiProvider
   ]
 })
 export class AppModule {}

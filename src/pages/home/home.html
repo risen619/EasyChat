@@ -2,6 +2,11 @@
 <ion-content>
     <ion-list>
         <conversation-card *ngFor="let c of conversations" [conversation]="c">
-    </conversation-card>
+        </conversation-card>
     </ion-list>
+    <ion-fab bottom right>
+        <button ion-fab color="fab-back">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>
