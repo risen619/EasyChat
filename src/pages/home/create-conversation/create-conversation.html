@@ -1,0 +1,28 @@
+<app-header title="Create conversation" modal="true" (cancel)="cancelHandler()"></app-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-10 offset-1>
+                <form [formGroup]="newConversationForm" (ngSubmit)="submit()" novalidate>
+                    <ion-item>
+                        <ion-label floating>Title</ion-label>
+                        <ion-input name="name" formControlName="name"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Avatar</ion-label>
+                        <ion-input name="avatar" formControlName="avatar"></ion-input>
+                    </ion-item>
+                    <ion-item text-center no-lines>
+                        <button ion-button color="danger" (click)="cancelHandler()">
+                            Cancel
+                        </button>&nbsp;
+                        <button ion-button color="secondary" type="submit">
+                            Create
+                        </button>
+                    </ion-item>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

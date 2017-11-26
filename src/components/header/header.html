@@ -1,11 +1,18 @@
 <ion-header>
     <ion-navbar>
-        <button ion-button menuToggle>
+        <button *ngIf="!isModal" ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
+
         <img *ngIf="avatar" [src]="avatar"/>
         <ion-title>
             {{ pageName }}
         </ion-title>
+
+        <ion-buttons *ngIf="isModal" end>
+            <button *ngIf="onCancel" (click)="cancel()" ion-button icon-only clear>
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>

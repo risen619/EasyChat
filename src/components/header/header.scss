@@ -1,7 +1,13 @@
 ion-header {
+
     ion-title {
         line-height: 3.5rem;
         display: inline-block;
+    }
+
+    button {
+        display: inline-block;
+        color: #fff !important;
     }
 
     img {

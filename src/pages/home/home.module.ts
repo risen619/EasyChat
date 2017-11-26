@@ -7,11 +7,21 @@ import { ConversationCardComponent } from './conversation-card/conversation-card
 import { ComponentsModule } from '../../components/components.module';
 import { ActiveConversationModule } from '../active-conversation/active-conversation.module';
 import { ActiveConversationPage } from '../active-conversation/active-conversation';
+import { CreateConversationPage } from './create-conversation/create-conversation';
 
 @NgModule({
-	declarations: [HomePage, ConversationCardComponent],
+	declarations: [
+        HomePage,
+        ConversationCardComponent,
+        CreateConversationPage
+    ],
     imports: [ComponentsModule, ActiveConversationModule, IonicPageModule.forChild(HomePage)],
-    entryComponents: [HomePage, ConversationCardComponent, ActiveConversationPage],
+    entryComponents: [
+        HomePage,
+        ConversationCardComponent,
+        ActiveConversationPage,
+        CreateConversationPage
+    ],
 	exports: []
 })
 export class HomeModule {}
