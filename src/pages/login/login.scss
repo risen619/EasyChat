@@ -1,5 +1,15 @@
 page-login {
-    ion-content {
-        color: #fff !important;
+    .form-errors {
+        padding-left: 25px;
+
+        ion-label {
+            margin-bottom: 0;
+        }
+
+        div.error {
+            font-weight: 600;
+            padding-bottom: 10px;
+            color: map-get($colors, danger);
+        }
     }
 }

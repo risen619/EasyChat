@@ -1,5 +1,17 @@
 ion-nav, ion-modal {
     ion-content {
+
+        color: #fff !important;
+        
+        form, form ion-item {
+            background: transparent !important;
+    
+            ion-label, ion-input {
+                color: #fff !important;
+            }
+        }
+        
+
         .fixed-content, .scroll-content {
             background: $background;
         }

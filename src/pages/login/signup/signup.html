@@ -1,0 +1,27 @@
+<app-header title="Registration"></app-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-8 offset-2>
+                <form [formGroup]="signupForm" (ngSubmit)="submit()" novalidate>
+                    <ion-item>
+                        <ion-label floating>E-mail</ion-label>
+                        <ion-input name="email" formControlName="email" type="email"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Password</ion-label>
+                        <ion-input name="password" formControlName="password" type="password"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Confirm password</ion-label>
+                        <ion-input name="passwordConfirmation" formControlName="passwordConfirmation" type="password"></ion-input>
+                    </ion-item>
+                    <ion-item text-center no-lines>
+                        <button ion-button type="submit">Create new account</button>
+                    </ion-item>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
