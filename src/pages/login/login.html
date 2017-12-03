@@ -10,7 +10,7 @@
                     </ion-item>
                     <ion-item *ngIf="email.invalid && (email.touched || formSubmitted)" class="form-errors" no-lines>
                         <div class="error" *ngIf="email.errors.required">Email is required</div>
-                        <div class="error" *ngIf="email.errors.email">Wrong format for E-mail</div>
+                        <div class="error" *ngIf="email.errors.pattern">Invalid email</div>
                     </ion-item>
 
                     <ion-item>
@@ -22,8 +22,8 @@
                     </ion-item>
 
                     <ion-item text-center no-lines>
-                        <button ion-button type="submit" (click)="login()">Sign in</button>
-                        <button ion-button type="button" (click)="signup()">Sign up</button>
+                        <button ion-button small type="submit" (click)="login()">Sign in</button>
+                        <button ion-button small type="button" (click)="signup()">Sign up</button>
                     </ion-item>
                 </form>
             </ion-col>

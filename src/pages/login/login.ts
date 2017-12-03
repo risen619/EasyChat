@@ -34,7 +34,7 @@ export class LoginPage
         this.signinForm = this.fb.group({
             email: ['', Validators.compose([
                 Validators.required,
-                Validators.email
+                Validators.pattern("[a-zA-Z0-9._-]+@[a-zA-Z]+\\.[a-zA-Z]+")
             ])],
             password: ['', Validators.required]
         });

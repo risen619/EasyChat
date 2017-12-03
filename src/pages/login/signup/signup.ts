@@ -10,6 +10,7 @@ import { PasswordValidator } from '../../../classes/password-validator';
 export class SignupPage {
 
     signupForm: FormGroup;
+    formSubmitted: boolean = false;
 
     constructor(
         public navCtrl: NavController,
@@ -26,7 +27,7 @@ export class SignupPage {
         this.signupForm = this.fb.group({
             email: ['', Validators.compose([
                 Validators.required,
-                Validators.email
+                Validators.pattern("[a-zA-Z0-9._-]+@[a-zA-Z]+\\.[a-zA-Z]+")
             ])],
             password: ['', Validators.compose([
                 Validators.required,
@@ -34,17 +35,21 @@ export class SignupPage {
                 Validators.maxLength(14)
             ])],
             passwordConfirmation: ['', Validators.compose([
-                Validators.required,
-                Validators.minLength(6),
-                Validators.maxLength(14)
+                Validators.required
             ])]
         }, {
             validator: PasswordValidator.MatchPassword
         });
     }
 
+    get email() { return this.signupForm.get("email"); }
+    get password() { return this.signupForm.get("password"); }
+    get passwordConfirmation() { return this.signupForm.get("passwordConfirmation"); }
+
     submit()
     {
+        this.formSubmitted = true;
+
         if(this.signupForm.valid)
         {
             console.log("<Form> Consider me submitted!");
