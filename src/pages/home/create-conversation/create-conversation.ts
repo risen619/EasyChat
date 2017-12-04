@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ViewController, AlertController, Slides } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -9,30 +8,37 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateConversationPage {
 
-    newConversationForm: FormGroup;
+    @ViewChild(Slides) slides: Slides;
+    people = [
+        {label: 'Shepard', value: false},
+        {label: 'Jack', value: false},
+        {label: 'Tali Zorah vas Normandy', value: false},
+        {label: 'Garrus', value: false},
+        {label: 'Joker', value: false},
+        {label: 'EDI', value: false}
+    ];
+    picked = [];
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         public viewCtrl: ViewController,
-        public fb: FormBuilder)
+        public alertCtrl: AlertController)
+    { }
+
+    nextPager()
     {
-        this.createForm();
+        this.slides.slideNext();
     }
 
-    createForm()
+    pickPerson(person)
     {
-        this.newConversationForm = this.fb.group({
-            name: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-            avatar: ''
-        });
+        person.value = !person.value;
     }
 
     submit()
     {
-        if(this.newConversationForm.valid)
-            console.log("<Form> Consider me submitted!");
-        else console.log("<Form> Noooooooooo! I'm invalid");
+        console.log('Hey there :)');
     }
 
     cancelHandler()

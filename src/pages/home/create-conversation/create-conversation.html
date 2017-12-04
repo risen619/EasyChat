@@ -2,27 +2,70 @@
 
 <ion-content>
     <ion-grid>
-        <ion-row>
-            <ion-col col-10 offset-1>
-                <form [formGroup]="newConversationForm" (ngSubmit)="submit()" novalidate>
-                    <ion-item>
-                        <ion-label floating>Title</ion-label>
-                        <ion-input name="name" formControlName="name"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating>Avatar</ion-label>
-                        <ion-input name="avatar" formControlName="avatar"></ion-input>
-                    </ion-item>
-                    <ion-item text-center no-lines>
-                        <button ion-button color="danger" (click)="cancelHandler()">
-                            Cancel
-                        </button>&nbsp;
-                        <button ion-button color="secondary" type="submit">
-                            Create
+        <ion-slides>
+            <ion-slide>
+                <ion-row>
+                    <ion-col col-10 offset-1>
+                        <ion-item no-padding>
+                            <ion-label floating>Title</ion-label>
+                            <ion-input name="name"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-10 offset-1>
+                        <ion-item no-padding>
+                            <ion-label floating>Avatar</ion-label>
+                            <ion-input name="avatar"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-10 offset-1 col-md-6 offset-md-3>
+                        <button ion-button full icon-end (click)="nextPager()">
+                            Next
+                            <ion-icon name="arrow-round-forward"></ion-icon>
                         </button>
-                    </ion-item>
-                </form>
-            </ion-col>
-        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-row>
+                    <ion-col col-10 col-md-6 offset-1 offset-md-3>
+                        <ion-list>
+                            <ion-item *ngFor="let p of people" no-lines no-padding>
+                                <ion-label>{{ p.label }}</ion-label>
+                                <button ion-button outline item-end (click)="pickPerson(p)">
+                                    <span *ngIf="!p.value">Add</span>
+                                    <span *ngIf="p.value">Remove</span>
+                                </button>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                    <ion-col col-10 offset-1 col-md-6 offset-md-3>
+                        <button ion-button full icon-end (click)="nextPager()">
+                            Next
+                            <ion-icon name="arrow-round-forward"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-slide>
+            <ion-slide>
+                <ion-row>
+                    <ion-col col-10 col-md-6 offset-1 offset-md-3>
+                        <ion-list>
+                            <div *ngFor="let p of people">
+                                <ion-item *ngIf="p.value" no-lines no-padding>
+                                    {{p.label}}
+                                </ion-item>
+                            </div>
+                        </ion-list>
+                    </ion-col>
+                    <ion-col col-10 offset-1 col-md-6 offset-md-3>
+                        <button ion-button full icon-end (click)="submit()">
+                            Create
+                            <ion-icon name="check"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-slide>
+        </ion-slides>
     </ion-grid>
 </ion-content>

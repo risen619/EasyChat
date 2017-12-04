@@ -1,3 +1,9 @@
 page-create-conversation {
-    
+    ion-item {
+        background-color: transparent !important;
+        
+        ion-input, ion-label {
+            color: #fff !important;
+        }
+    }
 }
