@@ -1,0 +1,16 @@
+<app-header title="Contacts"></app-header>
+<ion-content>
+    <ion-list>
+        <contact-card avatar="assets/imgs/avatar1.png" header="Andy Komar" subheader="risen619@gmail.com">
+            <button color="dark" ion-button icon-only clear>
+                <ion-icon name="close">
+                </ion-icon>
+            </button>
+        </contact-card>
+    </ion-list>
+    <ion-fab bottom right>
+        <button ion-fab color="fab-back" (click)="addContact()">
+            <ion-icon name="person-add"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

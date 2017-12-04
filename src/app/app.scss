@@ -44,3 +44,24 @@ ion-nav, ion-modal {
         overflow: visible;
     }
 }
+
+ion-menu ion-content {
+    background: $background;
+    ion-list {
+        padding-left: 15px;
+        padding-right: 10px;
+        margin-top: 5px !important;
+
+        button {
+            color: #fff !important;
+            font-size: 2rem !important;
+            font-weight: 300 !important;
+            background: transparent !important;
+
+            ion-icon {
+                margin-right: 8px;
+                vertical-align: bottom;
+            }
+        }
+    }
+}

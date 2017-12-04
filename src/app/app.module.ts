@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginPageModule } from '../pages/login/login.module';
 import { TokenInterceptor } from '../providers/token-interceptor/token-interceptor';
 import { ApiProvider } from '../providers/api/api';
+import { ContactsPageModule } from '../pages/contacts/contacts.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ApiProvider } from '../providers/api/api';
     ReactiveFormsModule,
     HttpClientModule,
     HomeModule,
-    LoginPageModule
+    LoginPageModule,
+    ContactsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -4,6 +4,7 @@ import { Conversation } from '../../models/conversation';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { CreateConversationPage } from './create-conversation/create-conversation';
+import { ActiveConversationPage } from '../active-conversation/active-conversation';
 
 @Component({
   selector: 'page-home',
@@ -27,6 +28,11 @@ export class HomePage {
     {
         let modal = this.modalCrtl.create(CreateConversationPage);
         modal.present();
+    }
+
+    openConversation(conversation)
+    {
+        this.navCtrl.push(ActiveConversationPage, {"conversation": conversation});
     }
 
 }

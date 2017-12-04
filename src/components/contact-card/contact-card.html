@@ -1,0 +1,12 @@
+<ion-item>
+    <ion-avatar item-start>
+        <ion-img [src]="avatar"></ion-img>
+    </ion-avatar>
+    <div (click)="click()">
+        <h2>{{ header }}</h2>
+        <p>
+            {{ subheader }}
+        </p>
+    </div>
+    <ng-content item-end></ng-content>
+</ion-item>

@@ -1,12 +1,18 @@
 <app-header title="Conversations"></app-header>
 <ion-content>
     <ion-list>
-        <conversation-card *ngFor="let c of conversations" [conversation]="c">
-        </conversation-card>
+        <contact-card *ngFor="let c of conversations" [avatar]="c.avatarUrl"
+            [header]="c.lastSender" [subheader]="c.lastMessage"
+            (onClick)="openConversation(c)">
+            <button color="dark" ion-button icon-only clear>
+                    <ion-icon name="more">
+                    </ion-icon>
+                </button>
+        </contact-card>
     </ion-list>
     <ion-fab bottom right>
         <button ion-fab color="fab-back" (click)="createConversation()">
-            <ion-icon name="add"></ion-icon>
+            <ion-icon name="create"></ion-icon>
         </button>
     </ion-fab>
 </ion-content>

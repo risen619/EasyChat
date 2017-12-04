@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { LoginPage } from '../pages/login/login';
+import { ContactsPage } from '../pages/contacts/contacts';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +16,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
     constructor(
         public platform: Platform,
@@ -29,8 +30,9 @@ export class MyApp {
         this.auth.homePage = HomePage;
 
         this.pages = [
-            { title: 'Conversations', component: HomePage },
-            { title: 'Logout', component: LoginPage }
+            { title: 'Conversations', component: HomePage, icon: 'text' },
+            { title: 'Contacts', component: ContactsPage, icon: 'contact' },
+            { title: 'Logout', component: LoginPage, icon: 'exit' }
         ];
     
         if(!this.auth.isAuthenticated())

@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, Content } from 'ionic-angular';
 import { Conversation } from '../../models/conversation';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
@@ -52,6 +52,11 @@ export class ActiveConversationPage
             this.text.setValue("");
             this.content.scrollTo(0, this.content._scrollContent.nativeElement.scrollHeight);
         }
+    }
+
+    ionViewDidLoad()
+    {
+        this.content.scrollTo(0, this.content._scrollContent.nativeElement.scrollHeight);
     }
 
 }
